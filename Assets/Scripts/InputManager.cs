@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem; // Import the Unity Input System namespace
 
@@ -57,13 +58,14 @@ public class InputManager : MonoBehaviour
         return playerInput.Player.Jump.triggered;
     }
 
-    public bool PlayerFireThisFrame()
-    {
-        return playerInput.Player.Fire.triggered;
-    }
     public bool IsFiring()
     {
-    return playerInput.Player.Fire.ReadValue<float>() > 0.1f;
+        return playerInput.Player.Fire.ReadValue<float>() > 0.1f;
+    }
+    
+    public bool PlayerReloadThisFrame()
+    {
+        return playerInput.Player.Reload.triggered;
     }
     
 
