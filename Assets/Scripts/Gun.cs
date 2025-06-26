@@ -59,8 +59,9 @@ public class Gun : MonoBehaviour
            {
                 if(Physics.Raycast(transform.position, -transform.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
-                   
-                    Debug.Log(hitInfo.transform.name);
+                    IDamageble damageble = hitInfo.transform.GetComponent<IDamageble>();
+                    damageble?.TakeDamage(gunData.damage);
+                    // Debug.Log(hitInfo.transform.name);
                 }
                 Debug.DrawRay(transform.position, -transform.forward * gunData.maxDistance, Color.yellow, 999f);
 
